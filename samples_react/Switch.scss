@@ -1,0 +1,103 @@
+@import 'base_css/variables';
+@import 'base_css/mixins';
+
+.bootstrap-scope.switch-component {
+  background: transparent;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .label-text {
+    flex: 1 0 auto;
+    padding: .1rem .25rem .2rem .5rem;
+  }
+
+  .switch {
+    position: relative;
+    outline: 0;
+    font-size: 0.875rem;
+    flex: 1 0 auto;
+    user-select: none;
+    border-radius: .3rem;
+
+    &.focused {
+      @include focus_outline()
+    }
+
+    [type=checkbox] {
+      position: absolute;
+      margin-bottom: 0;
+      opacity: 0;
+    }
+
+    .switch-paddle {
+      margin: 0;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: baseline;
+      position: relative;
+      border-radius: .25rem;
+      background: $light-gray-600;
+      width: 3.5rem;
+      height: 1.5rem
+      box-shadow: none;
+
+      &[aria-checked=true] {
+        .paddles {
+          background: $green-500;
+        }
+
+        .white-circle {
+          right: 0;
+        }
+
+        .toggle-state {
+          color: $white;
+          left: .5rem;
+        }
+      }
+
+      &[aria-checked=false] {
+        .paddles {
+          flex-direction: row-reverse;
+        }
+        .white-circle {
+          left: 0;
+        }
+        .toggle-state {
+          color: $medium-gray-800;
+          right: .5rem;
+        }
+      }
+
+      .paddles {
+        display: flex;
+        height: 2.5rem;
+        align-items: center;
+        transition: background-color 0.25s ease-out;
+        background: $light-gray-600;
+        border-radius: .65rem;
+      }
+
+      .toggle-state {
+        font-weight: bold;
+        flex: 1 1 auto;
+        margin-left: .6rem;
+        text-align: start;
+      }
+
+      .white-circle {
+        height: 1rem;
+        width: 1rem;
+        border-radius: .6rem;
+        background-color: $white;
+        margin: 0 .1rem;
+        flex: 0 0 auto;
+      }
+
+    }
+  }
+}

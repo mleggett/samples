@@ -1,0 +1,22 @@
+@import "../../base_css/accessibility";
+
+.baselines-header {
+  .main-toolbar {
+    .actions-column {
+      button.delete-button:disabled {
+        &:after {
+          @include right-align-tooltip;
+        }
+      }
+    }
+  }
+  .secondary-toolbar {
+    .views-column {
+      button.list-view {
+        &:after {
+          @include left-align-tooltip;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+@import "base_css/variables";
+@import "base_css/mixins";
+
+.small-btn {
+  padding: 0 .3rem;
+}
+
+.content-header, .bootstrap-scope .content-header {
+  box-sizing: border-box;
+  border-top: 1px solid $border-deep-gray;
+  background-color: $white;
+  padding: $header-base-padding;
+
+  button {
+    border: 1px solid $light-gray-600;
+    border-radius: .1rem;
+    white-space: nowrap;
+    background-color: $light-gray-300;
+    color: $dark-gray-500;
+    font-family: $base-font-family;
+
+    i.fa {
+      color: $dark-gray-200;
+    }
+    &:hover, &.text-button:hover {
+      background-color: $light-gray-500;
+    }
+    &:active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+      outline: none !important;
+    }
+    &.text-button {
+      padding: 0 .6rem;
+      min-width: 5.4rem;
+      margin-bottom: $header-base-padding;
+      display: inline-block;
+      text-align: center;
+      border: none;
+    }
+    &.link-button {
+      color: $dark-gray-300;
+      background-color: transparent;
+      border: none;
+      &:hover {
+        color: $blue-700;
+        &:disabled {
+          color: $link-disabled-color;
+          text-decoration: underline;
+        }
+      }
+      &:disabled {
+        color: $link-disabled-color;
+      }
+      &:active {
+        box-shadow: none;
+        outline: none !important; // To override another !important in EXT.
+      }
+    }
+    &.button-original-secondary.button-original-secondary-is-active,
+    &.button-original-secondary:active {
+      background-color: $brand-light-gray;
+    }
+    &:disabled {
+      border-color: $light-gray-300;
+      color: $light-gray-800;
+      cursor: not-allowed;
+      i.fa {
+        color: $light-gray-700;
+      }
+    }
+  }
+
+  hr {
+    margin: .5rem 0;
+  }
+
+  .button-group {
+    margin-right: $header-base-padding;
+    .button-container:first-of-type button {
+      border-radius: .1rem;
+    }
+    .button-container:last-of-type button {
+      border-radius: .1rem;
+    }
+  }
+
+  .button-container {
+    display: inline-block;
+  }
+
+  .views-column {
+    flex: 1;
+    line-height: normal;
+    min-width: 20rem; // flex weirdness with truncating the header text
+  }
+
+  .actions-column {
+    line-height: normal;
+    .buttons-container {
+      display: flex;
+      > .button-container:last-of-type {
+        button {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  // Top row of the header
+  .discovery-toolbar {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .breadcrumbs {
+      color: $dark-gray-300;
+      font-size: 0.825rem;
+    }
+    div.dropdown {
+      display: inline-block;
+      vertical-align: bottom;
+      .dropdown-toggle {
+        border: none;
+        background-color: transparent;
+        font-size: .825rem;
+        color: $dark-gray-300;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+        &:hover {
+          text-decoration: underline;
+          color: $blue-700;
+        }
+        .caret {
+          margin-top: .45em;
+        }
+      }
+    }
+    button {
+      margin-right: $header-base-padding;
+      &.small-btn {
+        font-size: 0.825rem;
+        line-height: normal;
+      }
+    }
+    > :last-child {
+      margin-right: 0;
+    }
+  }
+
+  // Middle row of the header
+  .main-toolbar {
+    display: flex;
+
+    .views-column {
+      > span {
+      }
+    }
+
+    .view-title {
+      @include ellipsis;
+      margin: 0;
+      color: $dark-gray-500;
+      font-weight: normal;
+      font-size: 1.5rem;
+      line-height: normal;
+      margin-right: 0.6rem;
+    }
+
+    .type-icon {
+      background-repeat: no-repeat;
+      padding-bottom: .1rem;
+      padding-left: 1.5rem;
+      color: $dark-gray-300;
+    }
+
+    .section-title {
+      color: $dark-gray-300;
+    }
+
+    i.type-icon-component {
+      color: $medium-gray-200;
+    }
+
+    .actions-column {
+      button {
+        font-size: 1.05rem;
+        padding: 0.35rem 1.1rem;
+        margin-right: $header-base-padding;
+        height: 100%;
+        &.textless-button {
+          height: unset;
+        }
+      }
+      .button-container.disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // Bottom row of the header
+  .secondary-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+    .views-column {
+      > div:first-of-type, > button:first-of-type {
+        margin-left: 0;
+      }
+      button {
+        height: 1.65rem;
+        &.button-checkbox, &.button-original {
+          height: inherit;
+        }
+        &.text-button {
+          height: 2.2rem;
+        }
+        &.toggle-button {
+          width: 1.8rem;
+        }
+      }
+      .inline-menu-item {
+        display: inline-block;
+      }
+      .item-selection-count {
+        flex: 0;
+        color: $dark-gray-300;
+        font-size: 0.9rem;
+      }
+
+    }
+    .actions-column {
+      height: 1.8rem;
+      > :last-child {
+        margin-right: 0;
+      }
+    }
+
+    .small-btn, .dropdown-toggle {
+      border-color: $light-gray-300;
+      font-size: 0.9rem;
+      margin-right: $header-base-padding;
+    }
+    .toggle-button {
+      border-color: $light-gray-300;
+      padding: 0;
+      margin-right: 0;
+      &.isActive {
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+}
