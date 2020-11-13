@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React Implementation of Conway's Game of Life</title>
+	<style type="text/css">
+		.grid-positioner {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.game-grid .row {
+			display: flex;
+		}
+		.game-cell {
+			border: 1px solid #ccc;
+			margin-left: -1px;
+			margin-top: -1px;
+			width: 1em;
+			height: 1em;
+		}
+		.game-cell.alive {
+			background-color: #8DB0CC;
+		}
+	</style>
+</head>
+<body>
+	<main id="game-container">loading</main>
+	<script src="./bundle.js" type="text/javascript"></script>
+</body>
+</html>
